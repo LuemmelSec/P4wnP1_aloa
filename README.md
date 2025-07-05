@@ -40,7 +40,8 @@ xz -9 kali-linux-v0.1.1-beta-rpi0w-nexmon-p4wnp1-aloa.img
 If you want to use the Pi Zero 2 W model, some changes need to be made  
 
 Steps:
-Download the latest Raspberry Pi OS Lite image from here.
+Download the latest Raspberry Pi OS Lite image from here: https://www.raspberrypi.com/software/operating-systems/  
+I used Raspberry Pi OS (Legacy) Lite, which is compatible with Zero W and Zero 2 W
 
 Mount that image, and copy the following from the boot partition of the Pi OS image to your P4wnP1 SD card boot partition:
 
