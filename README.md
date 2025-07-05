@@ -10,7 +10,7 @@ The latest image could be found under release tab.
 As it is a total mess and could not get it compiled nowadays I recommend to just use the image from the releases and if you want to change things do it in the image:  
 
 ```
-xz -d kali-linux-v0.1.1-beta-rpi0w-nexmon-p4wnp1-aloa.img.xz
+xz -vv -d kali-linux-v0.1.1-beta-rpi0w-nexmon-p4wnp1-aloa.img.xz
 fdisk -l kali-linux-v0.1.1-beta-rpi0w-nexmon-p4wnp1-aloa.img
 ```
 Check where the offest for the big partition starts
