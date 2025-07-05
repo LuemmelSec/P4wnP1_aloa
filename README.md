@@ -33,7 +33,7 @@ Back to img
 
 ```
 umount /mnt/p4wnp1
-xz -9 kali-linux-v0.1.1-beta-rpi0w-nexmon-p4wnp1-aloa.img
+xz -vv -6 kali-linux-v0.1.1-beta-rpi0w-nexmon-p4wnp1-aloa.img
 ```
 
 ## 0.1 Zero 2 W
@@ -54,6 +54,8 @@ overlays/
 bcm2710-rpi-zero-2-w.dtb
 ```
 Also copy ``lib/modules`` and ``lib/firmware`` from the Pi OS image's root partition to the matching locations in your image (overwrite them).   
+
+The provided images in the releases of this repo already contain everyhting you need.  
 
 ## 0.9 Access 
 
@@ -1352,6 +1354,26 @@ Example:
                                     custom SSIDs
 ```
  
+### USB covert channel
+There is a standalone version available which was created by Rogan Dawes: https://github.com/RoganDawes/CovertChannel  
+I forked it and extended: https://github.com/LuemmelSec/CovertChannel
+
+Basically the idea behind the whole covert channel is:  
+You plugin the P4wnP1 to your victims device and then gtfo. Like stay in reach to see when device is / gets unlocked so you can fire your payload.
+Once you successfully deployed the payload, you will have a reverse shell over Raw HID. Pi talks to itself over Raw HID and you connect via SSH over WiFi from a distance.
+
+#### Setup
+Everything is already provided in the images for Pi Zero W and Pi Zero 2 W  
+1. Connect device to victim device
+2. Connect to the webinterface http://172.24.0.1:8000
+3. Make sure that you have ``Custom HID device`` enabled
+4. Deploy config to target
+5. SSH into the Pi
+6. start the ``usb_covert_channel.sh`` script under ``/root/scripts``
+7. It will drop you into a tmux session with two windows: the covert-channel server and the netcat listener
+8. Execute the ``USB_covert_channel.js`` saved under the HIDSCRIPT section of the webinterface - adjust as / if needed
+9. Wait till you get the shell in netcat
+10. Profit
 
 ### WiFi covert channel
 
