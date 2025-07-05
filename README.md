@@ -36,6 +36,26 @@ umount /mnt/p4wnp1
 xz -9 kali-linux-v0.1.1-beta-rpi0w-nexmon-p4wnp1-aloa.img
 ```
 
+## 0.1 Zero 2 W
+If you want to use the Pi Zero 2 W model, some changes need to be made  
+
+Steps:
+Download the latest Raspberry Pi OS Lite image from here.
+
+Mount that image, and copy the following from the boot partition of the Pi OS image to your P4wnP1 SD card boot partition:
+
+```
+bootcode.bin
+start.elf
+fixup.dat
+kernel*.img
+overlays/
+bcm2710-rpi-zero-2-w.dtb
+```
+Also copy ``lib/modules`` and ``lib/firmware`` from the Pi OS image's root partition to the matching locations in your image (overwrite them).   
+
+## 0.9 Access 
+
 The easiest way to access a fresh P4wnP1 A.L.O.A. installation is to use the web client via the spawned WiFi (the PSK
 is `MaMe82-P4wnP1`, the URL `http://172.24.0.1:8000`) or SSH (default password `toor`).
 
