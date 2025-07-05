@@ -7,6 +7,35 @@ pentesting, red teaming and physical engagements ... or into "A Little Offensive
 
 The latest image could be found under release tab.
 
+As it is a total mess and could not get it compiled nowadays I recommend to just use the image from the releases and if you want to change things do it in the image:  
+
+```
+xz -d kali-linux-v0.1.1-beta-rpi0w-nexmon-p4wnp1-aloa.img.xz
+fdisk -l kali-linux-v0.1.1-beta-rpi0w-nexmon-p4wnp1-aloa.img
+```
+Check where the offest for the big partition starts
+
+```
+Device       Boot Start     End Sectors  Size Id Type
+img1         *    8192   53247   45056   22M  c  W95 FAT32 (LBA)
+img2              53248 1230847 1177600  575M 83 Linux
+```
+
+Then edit
+
+```
+mkdir -p /mnt/p4wnp1
+sudo mount -o loop,offset=$((53248 * 512)) kali-linux-*.img /mnt/p4wnp1
+thunar /mnt/p4wnp1
+```
+
+Back to img
+
+```
+umount /mnt/p4wnp1
+xz -9 kali-linux-v0.1.1-beta-rpi0w-nexmon-p4wnp1-aloa.img
+```
+
 The easiest way to access a fresh P4wnP1 A.L.O.A. installation is to use the web client via the spawned WiFi (the PSK
 is `MaMe82-P4wnP1`, the URL `http://172.24.0.1:8000`) or SSH (default password `toor`).
 
