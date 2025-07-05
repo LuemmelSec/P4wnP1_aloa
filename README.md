@@ -29,12 +29,14 @@ sudo mount -o loop,offset=$((53248 * 512)) kali-linux-*.img /mnt/p4wnp1
 thunar /mnt/p4wnp1
 ```
 
-Back to img
+Back to img an compress with xz
 
 ```
 umount /mnt/p4wnp1
 xz -vv -6 kali-linux-v0.1.1-beta-rpi0w-nexmon-p4wnp1-aloa.img
 ```
+
+you can then just use belana etcher or rufus to install the image on your SD card.
 
 ## 0.1 Zero 2 W
 If you want to use the Pi Zero 2 W model, some changes need to be made  
